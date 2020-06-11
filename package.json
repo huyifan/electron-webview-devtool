@@ -1,0 +1,16 @@
+{
+  "name": "electron-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^9.0.3",
+    "electron-log": "^4.2.1"
+  }
+}

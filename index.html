@@ -1,0 +1,46 @@
+<html>
+<head>
+    <style type="text/css">
+        * { margin: 0; }
+        #browser { height: 70%; }
+        #devtools { height: 30%; }
+    </style>
+</head>
+<body>
+<webview id="browser" src="https://github.com"></webview>
+<webview id="devtools" src="./dev.html"></webview>
+
+</body>
+<script>
+    const electron=require('electron')
+    const browserViewDom = document.getElementById('browser')
+    const devtoolsViewDom = document.getElementById('devtools')
+    browserViewDom.addEventListener('dom-ready', () => {
+        console.log('browserViewDom ok')
+        console.log('devtoolsViewDom ok')
+        try{
+            const browserViewId=browserViewDom.getWebContentsId()
+            const devToolsViewId=devtoolsViewDom.getWebContentsId()
+            console.log('webview dom-ready: browserViewId ', browserViewId); //Object
+            console.log('webview dom-ready: devToolsViewId ', devToolsViewId); //Object
+            const browserView=electron.remote.webContents.fromId(browserViewId)
+            const devToolsView=electron.remote.webContents.fromId(devToolsViewId)
+            console.log('devToolsView', devToolsView); //Object
+            console.log('browserView', browserView); //Object
+
+            //browserView.webContents.setDevToolsWebContents(devToolsView)
+            //browserView.webContents.setDevToolsWebContents(devToolsView.webContents)
+            //browserView.setDevToolsWebContents(devToolsView)
+           //browserView.setDevToolsWebContents(devToolsView.webContents)
+
+
+            //browserView.webContents.openDevTools()
+            //browserView.openDevTools()
+        }catch (e) {
+            alert(e)
+        }
+    })
+
+
+</script>
+</html>
