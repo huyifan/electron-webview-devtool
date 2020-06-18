@@ -12,14 +12,29 @@ function createWindow () {
     })
 
     let devView= new BrowserView({
+        parent:win,
         webPreferences: {
             nodeIntegration: true,
             webviewTag:true
         }
     })
 
-    win.setBrowserView(devView)
-    devView.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+    let devView2= new BrowserView({
+        parent:win,
+        webPreferences: {
+            nodeIntegration: true,
+            webviewTag:true
+        }
+    })
+
+    // win.setBrowserView(devView)
+    // devView.webContents.loadFile('dev.html')
+    // win.setBrowserView(devView2)
+    // devView.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+    // devView2.setBounds({ x: 300, y: 0, width: 300, height: 300 })
+    // devView2.webContents.setDevToolsWebContents(devView.webContents)
+    // devView2.webContents.openDevTools()
+    // win.webContents.openDevTools({mode:'detach'})
 
 
     // 加载index.html文件
@@ -27,13 +42,14 @@ function createWindow () {
 
     setTimeout(()=>{
         console.log('electron:',electron)
-        const browserContents=electron.webContents.fromId(3)
-        const devContents=electron.webContents.fromId(4)
+        const browserContents=electron.webContents.fromId(4)
+        const devContents=electron.webContents.fromId(5)
 
-        win.webContents.setDevToolsWebContents(devContents)
+        browserContents.webContents.setDevToolsWebContents(devContents)
+        browserContents.openDevTools()
         win.openDevTools({mode:"detach"})
 
-        browserContents.openDevTools({mode:'detach'})
+        //browserContents.openDevTools({mode:'detach'})
 
     },5000)
 }
