@@ -12,5 +12,8 @@
   "dependencies": {
     "electron": "^9.0.3",
     "electron-log": "^4.2.1"
+  },
+  "devDependencies": {
+    "electron-devtools-installer": "^3.0.0"
   }
 }

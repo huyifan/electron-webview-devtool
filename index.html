@@ -7,8 +7,8 @@
     </style>
 </head>
 <body>
-<webview id="browser" src="https://github.com"></webview>
-<webview id="devtools" src="./dev.html"></webview>
+<webview id="browser" src="https://github.com" plugins nodeintegrationinsubframes enableremotemodule="true"></webview>
+<webview id="devtools"  src='about:blank'></webview>
 
 </body>
 <script>
@@ -35,7 +35,7 @@
 
 
             //browserView.webContents.openDevTools()
-            //browserView.openDevTools()
+           // browserView.openDevTools()
         }catch (e) {
             alert(e)
         }
